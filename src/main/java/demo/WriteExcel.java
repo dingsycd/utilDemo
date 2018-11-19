@@ -26,7 +26,8 @@ public class WriteExcel {
     private static final String EXCEL_XLS = "xls";
     private static final String EXCEL_XLSX = "xlsx";
     
-    public static void main(String[] args) {
+    @SuppressWarnings("rawtypes")
+	public static void main(String[] args) {
         
         Map<String, String> dataMap=new HashMap<String, String>();
         dataMap.put("BankName", "BankName");
@@ -38,7 +39,8 @@ public class WriteExcel {
         
     }
 
-    public static void writeExcel(List<Map> dataList, int cloumnCount,String finalXlsxPath){
+    @SuppressWarnings("rawtypes")
+	public static void writeExcel(List<Map> dataList, int cloumnCount,String finalXlsxPath){
         OutputStream out = null;
         try {
             // 获取总列数

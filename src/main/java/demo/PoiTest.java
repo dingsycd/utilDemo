@@ -4,18 +4,17 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
- 
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
  
 public class PoiTest {
- 
-	@SuppressWarnings("unchecked")
+	
 	public static void main(String[] args) {
 		try {
 			OutputStream out = new FileOutputStream("E:\\test.xls");
 			List<List<String>> data = new ArrayList<List<String>>();
 			for (int i = 1; i < 5; i++) {
-				List rowData = new ArrayList();
+				List<String> rowData = new ArrayList<String>();
 				rowData.add(String.valueOf(i));
 				rowData.add("东霖柏鸿");
 				data.add(rowData);
