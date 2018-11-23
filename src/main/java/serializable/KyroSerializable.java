@@ -48,8 +48,7 @@ public class KyroSerializable {
         output.close();
     }
   
-    @SuppressWarnings("unused")
-	public static void getSerializableObject(){
+    public static void getSerializableObject(){
         Kryo kryo = new Kryo();
         kryo.setReferences(false);  
         kryo.setRegistrationRequired(false);
