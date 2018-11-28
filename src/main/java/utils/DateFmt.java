@@ -14,7 +14,7 @@ import java.util.Date;
 public class DateFmt {
 	public static final String     date_long  = "yyyy-MM-dd HH:mm:ss";
 	public static final String     date_short = "yyyy-MM-dd";
-	public static SimpleDateFormat sdf        = new SimpleDateFormat(date_short);
+	public static SimpleDateFormat sdf        = new SimpleDateFormat(date_long);
 	
 	public static String getCountDate(String date, String pattern) {
 		SimpleDateFormat sdFormat = new SimpleDateFormat(pattern);
@@ -33,8 +33,12 @@ public class DateFmt {
 		return sdf.parse(dateStr);
 	}
 	
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws Exception {
+		String input = "2014-01-07 08:40:51";
+		String result = getCountDate(input, DateFmt.date_short);
+		System.out.println(result);
+		Date date = parseDate(input);
+		System.out.println(date);
 	}
 
 }
