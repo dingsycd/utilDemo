@@ -1,5 +1,8 @@
 package demo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -10,7 +13,22 @@ import java.util.Objects;
  */
 public class Demo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+		Date date = formatter.parse("2018-11-07T18:37:42.803+08:00");
+		System.out.println(date);
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String sDate=sdf.format(date);
+		System.out.println(sDate);
+		
+//		String date = "2016-08-15T16:00:00.000Z";
+//		date = date.replace("Z", " UTC");
+//		System.out.println(date);
+//		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+//		Date d = format.parse(date);
+//		System.out.println(d);
+		
+		
 //		String input = "[[\"[10, 15, 8]\",\"[11, 16, 9]\"]]";
 //		System.out.println(input);
 //		String sub = input.substring(4,input.length() - 4);
