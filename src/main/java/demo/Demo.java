@@ -3,7 +3,6 @@ package demo;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Objects;
 
 /**
  * <p>Description:  </p>
@@ -15,7 +14,7 @@ public class Demo {
 
 	public static void main(String[] args) throws ParseException {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		Date date = formatter.parse("2018-11-07T18:37:42.803+08:00");
+		Date date = formatter.parse("2018-11-07T19:37:42.803+08:00");
 		System.out.println(date);
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String sDate=sdf.format(date);
