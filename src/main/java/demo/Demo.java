@@ -12,7 +12,13 @@ import java.util.Date;
  */
 public class Demo {
 
+
+
 	public static void main(String[] args) throws ParseException {
+
+		System.out.println(getValue(0.5));
+		System.out.println(getValue(0.3));
+		System.out.println(getValue(0.6));
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 		Date date = formatter.parse("2018-11-07T20:37:42.803+08:00");
 		System.out.println(date);
@@ -55,4 +61,22 @@ public class Demo {
 		}
 		return true;
 	}
+
+
+	/**
+	 *  doulbe为正数时：小数位的数值大于等于0.5，输出为整数部分+0.5；反之输出为整数部分+0.0
+	 * @param d 输入的double值
+	 * @return  double结果
+	 */
+	public static double getValue(double d) {
+		double temp = 0.0;
+		Math.floor(d);
+		if (d - Math.floor(d) >= 0.5)
+			temp += Math.floor(d) + 0.5;
+		else
+			temp += Math.floor(d);
+		return temp;
+	}
+
+
 }
