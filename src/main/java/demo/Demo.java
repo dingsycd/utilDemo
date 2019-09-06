@@ -24,7 +24,16 @@ public class Demo {
 
 	public static void main(String[] args) throws ParseException, IOException, InterruptedException {
 
-		System.out.println(StringUtils.difference("accbc", "acbxyz"));
+//        System.out.println(Integer.MAX_VALUE);
+//        System.out.println(2^32-1);
+//        System.out.println("Aa".hashCode());
+//        System.out.println("BB".hashCode());
+//		System.out.println(getAccountIdByUUId());
+        System.out.println(getOrderIdByUUId());
+//		System.out.println(8830*(1-(0.07+0.08+0.003+0.02))-1.6);
+//		System.out.println(UUID.randomUUID().toString().replace("-",""));
+//		System.out.println("]<span class='question'>");
+//		System.out.println(StringUtils.difference("accbc", "acbxyz"));
 //		System.out.println(StringUtils.abbreviateMiddle("abcdefghij", "...", 8));
 
 //		System.out.println(StringUtils.abbreviate("abcdefghijklmno", 4, 10));
@@ -189,6 +198,36 @@ public class Demo {
 //		System.out.println(11);
 //		System.out.println("11.20");
 //		System.out.println(get(3));
+	}
+
+
+
+    public static String getOrderIdByUUId() {
+        int first = new Random(10).nextInt(8) + 1;
+        System.out.println(first);
+        int hashCodeV = UUID.randomUUID().toString().hashCode();
+        System.out.println("hashCodeV------->" + hashCodeV);
+        if (hashCodeV < 0) {//有可能是负数
+            hashCodeV = -hashCodeV;
+        }
+        System.out.println("hashCodeV------->" + hashCodeV);
+        // 0 代表前面补充0
+        // 15 代表长度为15
+        // d 代表参数为正数型
+        return first + String.format("%015d", hashCodeV);
+    }
+
+    /**
+     * 使用UUID获得一个不重复的16位账号的算法
+     * @return
+     */
+	public static String getAccountIdByUUId() {
+		int machineId = 1;//最大支持1-9个集群机器部署
+		int hashCodeV = UUID.randomUUID().toString().hashCode();
+		if(hashCodeV < 0) {//有可能是负数
+			hashCodeV = - hashCodeV;
+		}
+		return machineId + String.format("%015d", hashCodeV);
 	}
 
 
