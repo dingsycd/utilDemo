@@ -139,8 +139,7 @@ private static HSSFWorkbook workbook = null;
     /** 
      * 往excel中写入(已存在的数据无法写入). 
      * @param fileDir    文件路径 
-     * @param sheetName  表格索引 
-     * @param object 
+     * @param sheetName  表格索引
      * @throws Exception 
      */  
     @SuppressWarnings("rawtypes")
