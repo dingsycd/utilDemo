@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>test Maven Webapp</name>
 	<properties>
-		<jackson_json_version>2.6.5</jackson_json_version>
+		<jackson_json_version>2.10.1</jackson_json_version>
 	</properties>
 	<dependencies>
 		<dependency>
