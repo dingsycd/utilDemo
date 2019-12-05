@@ -24,6 +24,8 @@ public class Demo {
 
 	public static void main(String[] args) throws ParseException, IOException, InterruptedException {
 
+		System.out.println(1);
+
 //        System.out.println(Integer.MAX_VALUE);
 //        System.out.println(2^32-1);
 //        System.out.println("Aa".hashCode());
