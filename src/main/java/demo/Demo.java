@@ -24,16 +24,19 @@ public class Demo {
 
 	public static void main(String[] args) throws ParseException, IOException, InterruptedException {
 
-		System.out.println(1);
-		System.out.println(2);
-		System.out.println(3);
+
+		System.out.println(String.format("pi%s-st%s-sc", 1, 1));
+
+//		System.out.println(1);
+//		System.out.println(2);
+//		System.out.println(3);
 
 //        System.out.println(Integer.MAX_VALUE);
 //        System.out.println(2^32-1);
 //        System.out.println("Aa".hashCode());
 //        System.out.println("BB".hashCode());
 //		System.out.println(getAccountIdByUUId());
-        System.out.println(getOrderIdByUUId());
+//        System.out.println(getOrderIdByUUId());
 //		System.out.println(8830*(1-(0.07+0.08+0.003+0.02))-1.6);
 //		System.out.println(UUID.randomUUID().toString().replace("-",""));
 //		System.out.println("]<span class='question'>");
