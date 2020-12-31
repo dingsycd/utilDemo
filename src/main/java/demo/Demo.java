@@ -1,7 +1,11 @@
 package demo;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import entity.User;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.scheduling.support.CronSequenceGenerator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,6 +15,10 @@ import java.nio.channels.FileChannel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * <p>Description:  </p>
@@ -22,10 +30,143 @@ public class Demo {
 
 
 
+	public void testCachedThreadPool() throws Exception {
+
+	}
+
+
+	static void changeUser(User user){
+		user = new User(1, "name");
+	}
+
 	public static void main(String[] args) throws ParseException, IOException, InterruptedException {
 
+		int[] t1 = new int[3];
+		t1[0] =1;
+		t1[1] =2;
+		t1[2] = 3;
+		int[] t2 = t1;
+		t2[1] = 22;
+		System.out.println(t1[1]);
+		System.out.println(t2[1]);
 
+		String ss1 = "ss1";
+		String ss2 = ss1;
+		System.out.println(ss1);
+		System.out.println(ss2);
+		ss1 = "s1";
+		System.out.println(ss1);
+		System.out.println(ss2);
+		ss2 = "s2";
+		System.out.println(ss1);
+		System.out.println(ss2);
+
+		int i1 = 1;
+		int i2 = i1;
+		System.out.println(i1);
+		System.out.println(i2);
+		i1 = 11;
+		System.out.println(i1);
+		System.out.println(i2);
+		i2 = 22;
+		System.out.println(i1);
+		System.out.println(i2);
+
+		User user1 = new User(1, "11");
+		User user2 = user1;
+		System.out.println(user1);
+		System.out.println(user2);
+		user1.setName("111");
+		System.out.println(user1);
+		System.out.println(user2);
+		changeUser(user1);
+		user2.setId(2);
+		System.out.println(user1);
+		System.out.println(user2);
+		user2 = new User(22, "222");
+		System.out.println(user1);
+		System.out.println(user2);
+		user1.setId(11);
+		System.out.println(user1);
+		System.out.println(user2);
+
+		String s1 = "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u043B\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD";
+		String s2 = new String(s1.getBytes("utf8"));
+		System.out.println(s2);
+//		// 声明一个线程池
+//		ExecutorService es = Executors.newCachedThreadPool();
+//		for (int i = 0; i < 4; i++) {
+//			final int a = i;
+//			// 每一次调用execute方法，都会向线程池中放入一个对象
+//			es.execute(new Runnable() {
+//				@Override
+//				public void run() {
+//					while (true) {
+//						System.err.println("测试...."+ a +">"+
+//								Thread.currentThread().getName()+","+
+//								Thread.currentThread().isDaemon());
+//						try {
+//							Thread.sleep(1000);
+//						} catch (InterruptedException e) {
+//							e.printStackTrace();
+//						}
+//					}
+//
+//				}
+//			});
+//		}
+
+//		es.shutdown();
+//		es.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
+//		String s1 = "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u043B\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD";
+//		String s2 = new String(s1.getBytes("UTF8"));
+//		System.out.println(s2);
+
+		Date date1 = new Date();
+		System.out.println("date1----------------->" + date1);
+		String str1 = "aa";
+		ArrayList list = new ArrayList();
+		list.add("bb");
+		list.add("aa");
+		list.add("cc");
+		System.out.println(list.indexOf("cc"));
+		System.out.println(list.indexOf("aaa"));
+		System.out.println(1%5 == -1);
+//		if (list.indexOf(str1) == -1)
+//		{
+//			list.add(str1);
+//		}
+
+		String str = "123456";
+		System.out.println(str.replaceAll("456", "33"));
+		List<String> lists = new ArrayList<String>();
+		lists.add("5");
+		lists.add("2");
+		lists.add("9");
+		System.out.println(lists);
+		//lists中的对象String 本身含有compareTo方法，所以可以直接调用sort方法，按自然顺序排序，即升序排序
+		Collections.sort(lists);
+		System.out.println(lists);
+
+
+
+		CronSequenceGenerator generator = new CronSequenceGenerator("0 15 * * * MON-FRI");
+
+		Date next = generator.next(new Date());
+		System.out.println(next); //Mon Apr 22 17:15:00 CST 2019
+		System.out.println(generator.next(next)); //Mon Apr 22 18:15:00 CST 2019
+		StringBuffer sb = new StringBuffer("我的");
+		AtomicInteger atomicInteger = new AtomicInteger(100);
+		System.out.println(sb.append(atomicInteger).toString());
+		System.out.println(String.format("%02d", new Random().nextInt(100)));
 		System.out.println(String.format("pi%s-st%s-sc", 1, 1));
+		JSONArray jsonArray = new JSONArray();
+		jsonArray.add("");
+
+		Thread.sleep(10000);
+		Date date2 = new Date();
+		System.out.println("date2----------------------->" + date2);
+//		System.out.println(date2 - date1);
 
 //		System.out.println(1);
 //		System.out.println(2);
@@ -208,8 +349,7 @@ public class Demo {
 	}
 
 
-
-    public static String getOrderIdByUUId() {
+	public static String getOrderIdByUUId() {
         int first = new Random(10).nextInt(8) + 1;
         System.out.println(first);
         int hashCodeV = UUID.randomUUID().toString().hashCode();

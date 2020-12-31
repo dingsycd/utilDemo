@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="message" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql://127.0.0.1:3306/csc_istp_advisor_message?useUnicode=true&amp;characterEncoding=utf8"-->
+                        <!--userId="root" password="123456">-->
+        <!--</jdbcConnection>-->
+        <!--<javaTypeResolver>-->
+            <!--<property name="forceBigDecimals" value="false"/>-->
+        <!--</javaTypeResolver>-->
+        <!--<javaModelGenerator targetPackage="com.example.demo.domain.dbo" targetProject="src/main/java">-->
+            <!--<property name="enableSubPackages" value="true"/>-->
+            <!--<property name="trimStrings" value="true"/>-->
+        <!--</javaModelGenerator>-->
+        <!--<sqlMapGenerator targetPackage="resources/mapper/message" targetProject="src/main">-->
+            <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</sqlMapGenerator>-->
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.mapper.message"-->
+                             <!--targetProject="src/main/java">-->
+            <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</javaClientGenerator>-->
+
+        <!--<table tableName="edw_prt_indv_cust_iam"-->
+               <!--enableCountByExample="true"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="true"-->
+               <!--enableInsert="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--enableSelectByPrimaryKey="true"-->
+               <!--enableUpdateByExample="false"-->
+               <!--enableUpdateByPrimaryKey="true"-->
+        <!--/>-->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf8"
+                        userId="root" password="123456">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <javaModelGenerator targetPackage="com.example.demo.domain.dbo" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="resources/mapper/testUser" targetProject="src/main">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.mapper.testUser"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="test_user"
+               enableCountByExample="true"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="true"
+               enableInsert="true"
+               enableSelectByExample="true"
+               enableSelectByPrimaryKey="true"
+               enableUpdateByExample="false"
+               enableUpdateByPrimaryKey="true"
+        />
+    </context>
+</generatorConfiguration>
