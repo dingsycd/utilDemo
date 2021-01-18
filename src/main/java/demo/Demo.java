@@ -40,6 +40,7 @@ public class Demo {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException, InterruptedException {
+		System.out.println();
 
 		int[] t1 = new int[3];
 		t1[0] =1;
